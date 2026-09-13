@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delhi Readymade Center - Online Garments Store</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">Delhi Readymade Center</div>
+            <div class="logo">
+                <h1>🛍️ Delhi Readymade Center</h1>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#collection">Collection</a></li>
+                <li><a href="#products">Products</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#" onclick="viewCart()">🛒 Cart (<span id="cart-count">0</span>)</a></li>
             </ul>
         </div>
     </nav>
@@ -23,65 +26,27 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Delhi Readymade Center</h1>
-            <p>आपके स्टाइल के लिए सबसे अच्छे कपड़े</p>
-            <p class="tagline">Best Quality Garments at Affordable Prices</p>
-            <button class="btn btn-primary" onclick="scrollToCollection()">Shop Now</button>
+            <h2>Welcome to Delhi Readymade Center</h2>
+            <p>Your One-Stop Shop for Premium Garments</p>
+            <a href="#products" class="btn">Shop Now</a>
         </div>
     </section>
 
-    <!-- Collection Section -->
-    <section id="collection" class="collection">
+    <!-- Products Section -->
+    <section id="products" class="products">
         <div class="container">
-            <h2>Our Collection</h2>
-            <div id="collectionGrid" class="collection-grid">
-                <!-- Collections will be added dynamically -->
+            <h2>Our Collections</h2>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded here by JavaScript -->
             </div>
-            <button class="btn btn-secondary" onclick="openAddCollectionForm()">+ Add Collection</button>
         </div>
     </section>
-
-    <!-- Add Collection Form (Modal) -->
-    <div id="addCollectionModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeAddCollectionForm()">&times;</span>
-            <h2>Add New Collection</h2>
-            <form id="collectionForm" onsubmit="addCollection(event)">
-                <div class="form-group">
-                    <label>Collection Name:</label>
-                    <input type="text" id="collectionName" required>
-                </div>
-                <div class="form-group">
-                    <label>Description:</label>
-                    <textarea id="collectionDesc" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Price:</label>
-                    <input type="number" id="collectionPrice" required>
-                </div>
-                <div class="form-group">
-                    <label>Image URL:</label>
-                    <input type="url" id="collectionImage" required>
-                </div>
-                <div class="form-group">
-                    <label>Category:</label>
-                    <select id="collectionCategory" required>
-                        <option>Men's Wear</option>
-                        <option>Women's Wear</option>
-                        <option>Kids Wear</option>
-                        <option>Ethnic Wear</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Add Collection</button>
-            </form>
-        </div>
-    </div>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2>About Us</h2>
-            <p>Delhi Readymade Center आपके लिए best quality क��� कपड़े लाता है। हम सबसे अच्छे prices में premium quality garments provide करते हैं।</p>
+            <p>Delhi Readymade Center has been serving customers with premium quality garments since 2010. We offer a wide range of traditional and modern clothing for men, women, and children.</p>
         </div>
     </section>
 
@@ -90,25 +55,39 @@
         <div class="container">
             <h2>Contact Us</h2>
             <div class="contact-info">
-                <div class="info-item">
-                    <h3>📍 Address</h3>
-                    <p>Muhammadabad, Gohna<br>Mau, Uttar Pradesh</p>
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>Delhi, India</p>
                 </div>
-                <div class="info-item">
+                <div class="contact-item">
                     <h3>📞 Phone</h3>
-                    <p><a href="tel:9140840476">9140840476</a></p>
+                    <p>+91-9876543210</p>
                 </div>
-                <div class="info-item">
+                <div class="contact-item">
                     <h3>✉️ Email</h3>
-                    <p><a href="mailto:info@delhireadymade.com">info@delhireadymade.com</a></p>
+                    <p>info@delhireadymadecenter.com</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <h3>Total: ₹<span id="total-price">0</span></h3>
+            </div>
+            <button class="btn" onclick="checkout()">Checkout</button>
+            <button class="btn btn-secondary" onclick="closeCart()">Continue Shopping</button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Delhi Readymade Center. All Rights Reserved.</p>
+        <p>&copy; 2026 Delhi Readymade Center. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
